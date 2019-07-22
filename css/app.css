@@ -1,0 +1,426 @@
+* {
+  outline: none;
+  padding: 0;
+  margin: 0;
+}
+
+body, html {
+  background-color: #333333;
+  width: 100%;
+  overflow-x: hidden;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  max-width: calc(100% - 0px);
+  min-width: 1024px;
+  margin: 0 auto;
+}
+
+.flex-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.result {
+  bottom: 0;
+  position: relative;
+  width: 50%;
+  height: calc(100vh - 70px);
+  background-color: white;
+  outline: none;
+  border: none;
+}
+
+.navbar {
+  padding: 0 10px;
+  height: 60px;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background: #26282c;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-bottom: 1px solid #34495e;
+}
+
+.navbar .brand-logo {
+  width: 150px;
+  pointer-events: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.explorer-toggle {
+  background-color: #333333;
+}
+
+.explorer-toggle .explorer-toggle-menu {
+  padding: 10px;
+  font-size: 20px;
+  color: #adadad;
+  cursor: pointer;
+  -webkit-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
+
+.explorer-toggle .explorer-toggle-menu:hover {
+  color: white;
+}
+
+.explorer-toggle .explorer-toggle-menu.active {
+  color: white;
+}
+
+.explorer {
+  background-color: #252526;
+  width: 0px;
+  -webkit-transition: width 1s;
+  transition: width 1s;
+  -webkit-transition-timing-function: cubic-bezier(0.1, 1, 0.1, 1);
+          transition-timing-function: cubic-bezier(0.1, 1, 0.1, 1);
+}
+
+.explorer .explorer-bar {
+  width: 200px;
+  color: white;
+  background-color: #3c3c3c;
+  padding: 13px 10px;
+  font-size: 14px;
+  -webkit-box-shadow: inset -1px 0 0 #007bff;
+          box-shadow: inset -1px 0 0 #007bff;
+}
+
+.explorer .explorer-list {
+  list-style: none;
+}
+
+.explorer .explorer-list .list-item {
+  width: 200px;
+  padding: 5px 10px;
+  font-size: 14px;
+  cursor: pointer;
+  color: #95a5a6;
+  -webkit-transition: all 0.1s ease-out;
+  transition: all 0.1s ease-out;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.explorer .explorer-list .list-item:hover {
+  color: white;
+  background-color: #37373e;
+}
+
+.explorer .explorer-list .list-item.active {
+  background-color: #007bff;
+  color: white;
+}
+
+.explorer .explorer-list .list-item.active .icon {
+  color: white;
+}
+
+.explorer .explorer-list .list-item .icon {
+  max-width: 20px;
+  min-width: 20px;
+  text-align: center;
+  color: #bdc3c7;
+}
+
+.code-container {
+  padding-right: 5px;
+  padding-left: 0;
+  padding-bottom: 0;
+  background: #1e1e1e;
+  width: 50%;
+}
+
+#codeArea, #codeAreaCSS {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  width: 100%;
+  height: calc(100vh - 140px);
+  cursor: text;
+  position: relative;
+}
+
+#codeEditor, #codeEditorCSS {
+  font-family: monospace;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-line-pack: stretch;
+      align-content: stretch;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  width: 100%;
+  max-height: calc(100vh - 140px);
+  font-size: 16px;
+  direction: ltr;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+  -webkit-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+  color: #eeffff;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  overflow-y: scroll;
+}
+
+#codeNumbers, #codeNumbersCSS {
+  width: 20px;
+  text-align: right;
+  color: #8e9195;
+  padding: 10px 5px;
+  padding-right: 10px;
+  padding-left: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  z-index: 1;
+  font-family: monospace;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 18px;
+  letter-spacing: 0px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  cursor: default;
+}
+
+#codeNumbers .line-numbers, #codeNumbersCSS .line-numbers {
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.code-title-container {
+  background-color: #3c3c3c;
+}
+
+.code-title-container .code-title {
+  color: #eeffff;
+  padding: 8px 10px;
+  background-color: #1e1e1e;
+  display: inline-block;
+  font-weight: 100;
+  font-size: 14px;
+  border-radius: 8px;
+  margin: 5px;
+}
+
+.code-title-container .code-title .icon {
+  color: #bdc3c7;
+  margin-right: 5px;
+}
+
+#codeEditor #codeContent, #codeEditorCSS #codeContentCSS {
+  width: 100%;
+  padding: 10px;
+  padding-left: 0;
+  padding-right: 0;
+  font-size: 16px;
+  line-height: 18px;
+  background-color: transparent;
+  caret-color: #3498db;
+  -webkit-font-smoothing: antialiased;
+  z-index: 100;
+}
+
+#outerCodeContent, #outerCodeContentCSS {
+  background-color: transparent;
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+}
+
+.dw.val {
+  color: black;
+}
+
+.dw.number, .dw.operator, .dw.tag {
+  color: #1B9CFC;
+}
+
+.dw.lines {
+  padding-right: 10px;
+  width: calc(100% - 10px);
+}
+
+.dw.lines.active {
+  -webkit-box-shadow: inset 0px 0px 1px #474747;
+          box-shadow: inset 0px 0px 1px #474747;
+  background-color: #252525;
+}
+
+.dw.cdata, .dw.comment, .dw.doctype, .dw.prolog {
+  color: #8e8e8e;
+}
+
+.dw.brackets {
+  color: #cfd0d2;
+}
+
+.dw.attr-name {
+  color: #9cdcfe;
+}
+
+.dw.string, .language-scss .dw.string, .style .dw.string, .dw.atrule, .dw.attr-value, .dw.boolean, .dw.control, .dw.directive, .dw.entity, .dw.keyword, .dw.placeholder, .dw.regex, .dw.statement, .dw.string, .dw.unit, .dw.url, .dw.variable, code.language-css, code.language-scss {
+  color: #eccc68;
+}
+
+#caretPosition {
+  font-weight: bold;
+}
+
+::-moz-selection {
+  background-color: #a5a88f;
+}
+
+::selection {
+  background-color: #a5a88f;
+}
+
+::-moz-selection {
+  background-color: #a5a88f;
+}
+
+::-o-selection {
+  background-color: #a5a88f;
+}
+
+::-ms-selection {
+  background-color: #a5a88f;
+}
+
+::-webkit-selection {
+  background-color: #a5a88f;
+}
+
+#codeEditor::-webkit-scrollbar, #codeEditorCSS::-webkit-scrollbar {
+  width: 5px;
+}
+
+#codeEditor::-webkit-scrollbar-track, #codeEditorCSS::-webkit-scrollbar-track {
+  cursor: pointer;
+  background-color: transparent;
+}
+
+#codeEditor::-webkit-scrollbar-thumb, #codeEditorCSS::-webkit-scrollbar-thumb {
+  background-color: #37629b;
+  cursor: pointer;
+  -webkit-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+  border-radius: 20px;
+}
+
+#codeEditor::-webkit-scrollbar-thumb:hover, #codeEditorCSS::-webkit-scrollbar-thumb:hover {
+  background-color: #3e71b3;
+  cursor: pointer;
+}
+
+.statusBar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  border-top: 1px solid #2d333b;
+}
+
+.statusBar #status {
+  color: #eeffff;
+  padding: 8px 20px;
+  font-size: 12px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+footer p {
+  color: #eeffff;
+  padding: 20px 0;
+  font-size: 10px;
+  height: 10px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.box-autocomplete {
+  background-color: #252526;
+  position: absolute;
+  overflow: hidden;
+  min-width: 200px;
+  border: solid 1px #34495e;
+  z-index: 1000;
+  color: #ecf0f1;
+}
+
+.box-autocomplete ul {
+  list-style: none;
+}
+
+.box-autocomplete ul li {
+  position: relative;
+  font-weight: 100;
+  cursor: pointer;
+  padding: 2.5px 5px;
+}
+
+.box-autocomplete ul li:hover, .box-autocomplete ul li.active {
+  background-color: #062f4a;
+}
+
+.suggestTest {
+  display: none;
+}
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: block !important;
+}
+/*# sourceMappingURL=app.css.map */

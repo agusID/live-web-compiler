@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="author" content="Dwi Agustianto">
+
+    <title>Editor</title>
+    <link rel="stylesheet" href="css/fontawesome.min.css"/>
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="shorcut icon" href="images/favicon.ico">
+    <script src="js/Editor.js"></script>
+    <script src="js/App.js"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <img class="brand-logo" src="images/brand.png" onmousedown="return false"/>
+    </nav>
+    <div class="container">
+        <div class="flex-group">
+            <div class="explorer-toggle" id="toggleMenu">
+                <div class="explorer-toggle-menu" id="toggleMenuIcon"><i class="fas fa-file-alt icon"></i></div>
+            </div>
+            <div class="explorer" id="explorer">
+                <div class="explorer-bar">
+                    Files Explorer
+                </div>
+                <ul class="explorer-list" id="explorerList">
+                    <li class="list-item active" id="htmlFile" ><div data-value="index.html"><i class="fas fa-code icon"></i> index.html</div></li>
+                    <li class="list-item" id="cssFile"><div data-value="style.html"><i class="fas fa-file-code icon"></i> style.css</div></li>
+                </ul>
+            </div>
+            <div class="code-container">
+                <div class="code-title-container">
+                    <div class="code-title" id="codeTitle"><i class="fas fa-code icon"></i>index.html</div>
+                </div>
+                <div id="codeEditor">
+                    <div id="codeNumbers"></div>
+                    <div id="codeArea" class="code-area">
+                        <div id="outerCodeContent"></div>
+                        <pre id="codeContent"></pre>
+                        <div id="acBox" class="box-autocomplete hide"></div>
+                    </div>
+                </div>
+                <div id="codeEditorCSS" style="width:0px;height:0px;overflow:hidden">
+                    <div id="codeNumbersCSS"></div>
+                    <div id="codeAreaCSS" class="code-area">
+                        <div id="outerCodeContentCSS"></div>
+                        <pre id="codeContentCSS"></pre>
+                        <!-- <div id="acBoxCSS" class="box-autocomplete hide"></div> -->
+                    </div>
+                </div>
+                <div class="statusBar">
+                    <div id="status"></div>
+                </div>
+            </div>
+            <iframe class="result" id="result"></iframe>
+        </div>
+    </div>
+    <footer>
+        <div class="container">
+            <p>&copy; 2019. Dwi Agustianto</p>
+        </div>
+    </footer>
+</body>
+</html>
